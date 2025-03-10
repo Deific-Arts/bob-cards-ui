@@ -82,6 +82,7 @@ export class BobLogin extends LitElement {
                   <kemet-input required slot="input" type="password" name="password" validate-on-blur></kemet-input>
                 </kemet-field>
               </p>
+              <br />
               <kemet-button>
                Login <kemet-icon slot="right" icon="chevron-right"></kemet-icon>
               </kemet-button>
@@ -148,7 +149,6 @@ export class BobLogin extends LitElement {
 
         // success
         if (response.token) {
-          console.log('success');
           const options = {
             method: 'GET',
             headers: {
@@ -159,7 +159,6 @@ export class BobLogin extends LitElement {
           const userProfile = await fetch(`${API_URL}/wp-json/wp/v2/users/${response.user_id.toString()}?context=edit`, options).then((response) => response.json());
           this.userState.updateProfile(userProfile);
           this.userState.login(response);
-          console.log(this.userState.isLoggedIn);
           switchRoute('/mine');
         }
       })
