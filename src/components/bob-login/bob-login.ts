@@ -56,6 +56,13 @@ export class BobLogin extends LitElement {
   @query('form[action*=jwt-auth] kemet-button')
   loginButton!: KemetButton;
 
+  constructor() {
+    super();
+    userStore.subscribe((state) => {
+      this.userState = state;
+    });
+  }
+
   render() {
     return html`
       <kemet-card>
@@ -141,6 +148,7 @@ export class BobLogin extends LitElement {
 
         // success
         if (response.token) {
+          console.log('success');
           const options = {
             method: 'GET',
             headers: {
@@ -151,6 +159,7 @@ export class BobLogin extends LitElement {
           const userProfile = await fetch(`${API_URL}/wp-json/wp/v2/users/${response.user_id.toString()}?context=edit`, options).then((response) => response.json());
           this.userState.updateProfile(userProfile);
           this.userState.login(response);
+          console.log(this.userState.isLoggedIn);
           switchRoute('/mine');
         }
       })
