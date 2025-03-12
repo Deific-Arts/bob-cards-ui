@@ -93,7 +93,15 @@ export class BobApp extends LitElement {
                 <img src=${this.userState.profile.meta.bob_profile_image} alt="Profile picture" style="max-width:100%; border-radius: 50%;" />
               </button>
               <figcaption>Hello ${this.userState.profile.username}.</figcaption>
-              <p><button @click=${() => this.userState.logout()}>Log Out</button>.</p>
+              <p>
+                <button
+                  @click=${() => {
+                    this.userState.logout();
+                    switchRoute('home');
+                  }}>
+                  Log Out
+                </button>.
+              </p>
             </figure>
             <nav>${nav}</nav>
           ` : html`

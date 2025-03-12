@@ -56,6 +56,13 @@ export class BobLogin extends LitElement {
   @query('form[action*=jwt-auth] kemet-button')
   loginButton!: KemetButton;
 
+  constructor() {
+    super();
+    userStore.subscribe((state) => {
+      this.userState = state;
+    });
+  }
+
   render() {
     return html`
       <kemet-card>
@@ -75,6 +82,7 @@ export class BobLogin extends LitElement {
                   <kemet-input required slot="input" type="password" name="password" validate-on-blur></kemet-input>
                 </kemet-field>
               </p>
+              <br />
               <kemet-button>
                Login <kemet-icon slot="right" icon="chevron-right"></kemet-icon>
               </kemet-button>
