@@ -1,4 +1,4 @@
-name: deploy
+name: deploy-dev
 on:
   push:
     branches:
@@ -17,12 +17,12 @@ jobs:
           npm install
           npm run build
       - name: Deploy
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.5
         with:
           username: ${{ secrets.FTP_DEPLOY_USERNAME }}
           server: ${{ secrets.FTP_DEPLOY_HOST }}
           port: ${{ secrets.FTP_DEPLOY_PORT }}
-          local_path: "./dist/"
+          local_path: "./dist/*"
           remote_path: "./sites/bob-cards-ui-dev/"
           sftp_only: true
           password: ${{ secrets.FTP_DEPLOY_PASSWORD }}
