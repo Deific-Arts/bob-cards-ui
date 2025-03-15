@@ -4,10 +4,10 @@
   --app-page-width: 1280px;
   --app-color: var(--kemet-color-stone-300);
   --app-border: 1px solid rgb(var(--kemet-color-black) / 50%);
-  --app-background-color: var(--kemet-color-stone-900);
+  --app-background-color: var(--kemet-color-neutral-900);
 
   --kemet-color-text: var(--app-color);
-  --kemet-color-primary: var(--kemet-color-sky-600);
+  --kemet-color-primary: var(--kemet-color-emerald-600);
 }
 
 @media (prefers-color-scheme: light) {

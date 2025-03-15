@@ -11,7 +11,7 @@ export default css`
     border: var(--app-border);
     border-radius: var(--kemet-border-radius-lg);
     box-shadow: 4px 4px 4px rgb(var(--kemet-color-black) / 66%);
-    filter: drop-shadow(8px 8px 8px rgb(var(--kemet-color-black) / 66%));
+    filter: drop-shadow(8px 8px 8px rgb(var(--kemet-color-black) / 33%));
     background-color: rgb(var(--kemet-color-black) / 10%);
 
   }
