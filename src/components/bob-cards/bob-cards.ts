@@ -166,11 +166,11 @@ export default class BobCards extends LitElement {
   filterUniqueBusinesses() {
     const uniqueIDs = new Set(this.businessData.map((business: any) => business.details.fsq_id));
     this.businessDataFiltered = this.businessData.filter((business: any) => {
-      if (!this.filterState.zipCodes.includes(business.details.location.postcode) && this.filterState.nearby) {
+      if (!this.filterState.zipCodes.includes(business?.details?.location?.postcode) && this.filterState.nearby) {
         return false;
       }
 
-      if (business.details.location.region !== abbreviateState(this.filterState.region) && this.filterState.onlyInState) {
+      if (business?.details?.location?.region !== abbreviateState(this.filterState.region) && this.filterState.onlyInState) {
         return false;
       }
 

@@ -129,7 +129,7 @@ export default class BobCard extends LitElement {
             </nav>
             ${this.geoState.coords && html`
               <span>
-                <kemet-button outlined variant="circle" link=${`https://www.google.com/maps/dir/${this.geoState.coords.lat},${this.geoState.coords.lng}/${this.details.location.formatted_address},17z`} target="_blank">
+                <kemet-button outlined variant="circle" link=${`https://www.google.com/maps/dir/${this.geoState.coords.lat},${this.geoState.coords.lng}/${this.details?.location?.formatted_address},17z`} target="_blank">
                   <kemet-icon icon="car-front-fill" size="24"></kemet-icon>
                 </kemet-button>
               </span>
@@ -137,7 +137,7 @@ export default class BobCard extends LitElement {
           </div>
 
         </div>
-        <p>${this.details.location.formatted_address}</p>
+        <p>${this.details?.location?.formatted_address}</p>
       </section>
       <kemet-modal effect="fall" rounded>
         <kemet-modal-close role="button" aria-label="Close Button">
