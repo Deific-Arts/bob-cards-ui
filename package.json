@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:pre-production": "cross-env NODE_ENV=pre-production tsc && vite build",
+    "build:pre-production": "tsc && vite build --mode pre-production",
     "preview": "vite preview"
   },
   "dependencies": {
